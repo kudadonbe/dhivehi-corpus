@@ -34,7 +34,7 @@ cannot be reached, the app shows its built-in text: nothing ever waits on the co
 ```sh
 pnpm install
 pnpm dev       # http://localhost:5173 (needs .env.local, docs/SETUP.md)
-pnpm test      # vitest: the lexicon model (from TaxiQ), the labels model, the eForms seed file
+pnpm test      # vitest: the lexicon model (from TaxiQ) and editor helpers, the labels model, the eForms seed file
 pnpm build     # tsc -b, then vite build to dist/
 pnpm lint      # oxlint
 ```
@@ -42,9 +42,11 @@ pnpm lint      # oxlint
 | Path | |
 |---|---|
 | `src/core/corpus.ts` | Lexicon model: shapes, checks, search, export (TaxiQ v2.17.0, unchanged) |
+| `src/core/lexicon.ts` | Lexicon editor helpers: the word list grouped by root, history values as text |
 | `src/core/strings.ts` | App labels: keys, checks on a correction, import merge, published bundle |
-| `src/strings.ts` | Labels in Firestore: live lists, review (with history and publish in one transaction), import |
-| `src/components/` | The site: Labels (review), Apps (connect, import, export), Lexicon, Editors |
+| `src/strings.ts` | Labels in Firestore: live lists, review (with history and publish in one transaction), import; `put()`, the one write-with-history |
+| `src/lexicon.ts` | Lexicon in Firestore (from TaxiQ's `src/corpus.ts`): live lists, save, verify, delete, export, each with its history entry |
+| `src/components/` | The site: Labels (review), Apps (connect, import, export), Lexicon (words by root, dialect forms, sentences, roots, sources, history, verify, export), Editors |
 | `firestore.rules` | Who may read and write what; every edit leaves an append-only history entry |
 | `scripts/` | `export-fc-eforms.py`, `migrate-taxiq.mjs`, `build-rules.py` |
 | `seed/` | Import files (`fc-eforms.json`); `taxiq-fixes.json` after the migration |

@@ -4,7 +4,7 @@ import {
   type DocumentReference, type Transaction, type WriteBatch,
 } from 'firebase/firestore'
 import { auth, db } from './firebase'
-import { snapshot } from './core/corpus'
+import { snapshot, type Collection, type HistoryAction } from './core/corpus'
 import {
   bundle, emptyApp, emptyString, mergeImport, stringDocId,
   type AppData, type ImportFile, type MergePlan, type Status, type StringData,
@@ -24,7 +24,7 @@ export type Str = StringData & { id: string; updatedBy: string; updatedAt: numbe
 const me = () => (auth.currentUser?.email ?? '').toLowerCase()
 const ms = (x: unknown) => (x && typeof (x as { toMillis?: () => number }).toMillis === 'function' ? (x as { toMillis: () => number }).toMillis() : 0)
 
-function fill<T extends object>(empty: T, x: Record<string, unknown>): T {
+export function fill<T extends object>(empty: T, x: Record<string, unknown>): T {
   const out = { ...empty } as Record<string, unknown>
   for (const [k, def] of Object.entries(empty)) {
     const v = x[k]
@@ -64,10 +64,11 @@ export function useStrings(app: string | null): { list: Str[]; loading: boolean 
 /* ------------------------------------------------------------------ writing */
 
 // A batch or a transaction: both set() the same way.
-type Writer = WriteBatch | Transaction
+export type Writer = WriteBatch | Transaction
 
-// One document and its history entry. prev = the stored content (null when creating).
-function put(w: Writer, col: 'corpusStrings' | 'corpusApps', ref: DocumentReference, docId: string, data: object, prev: object | null, action: 'create' | 'update' = prev ? 'update' : 'create') {
+// One document and its history entry. prev = the stored content (null when creating). The lexicon
+// (src/lexicon.ts) writes through here too.
+export function put(w: Writer, col: Collection | 'corpusStrings' | 'corpusApps', ref: DocumentReference, docId: string, data: object, prev: object | null, action: HistoryAction = prev ? 'update' : 'create') {
   const by = me()
   const now = serverTimestamp()
   const h = doc(collection(db, 'corpusHistory'))
