@@ -1,3 +1,4 @@
+# Install scripts these packages ask to run; neither is needed (pnpm 11 asks, pnpm 10 warns).
 allowBuilds:
-  '@firebase/util': set this to true or false
-  protobufjs: set this to true or false
+  '@firebase/util': false
+  protobufjs: false
