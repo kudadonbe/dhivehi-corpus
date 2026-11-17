@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.pnpm-store/
+*.log
+.firebase/
+# service-account keys for scripts: never committed (docs/MIGRATION.md)
+*-service-account*.json
+secrets/
+.env.local

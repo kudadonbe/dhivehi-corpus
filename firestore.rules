@@ -1,0 +1,263 @@
+rules_version = '2';
+
+// Dhivehi corpus (docs/ARCHITECTURE.md). Two parts:
+// - the lexicon: roots, words, dialect forms, sentences, sources (moved from TaxiQ, same shapes and
+//   checks as TaxiQ's corpus section; src/core/corpus.ts);
+// - app labels: every Dhivehi string of every connected app, its review and corrections
+//   (src/core/strings.ts), and published/{app}, the corrections each app reads (public, read-only).
+// Every edit of either part adds an append-only corpusHistory entry in the same batch.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+    function email() {
+      return request.auth.token.email.lower();
+    }
+    function str(v, max) {
+      return v is string && v.size() <= max;
+    }
+    function editorDoc() {
+      return /databases/$(database)/documents/editors/$(email());
+    }
+    // Editors are listed in editors/{email}; admins (admin: true) manage the list. The first admin
+    // is added by hand in the Firebase console (docs/SETUP.md).
+    function isEditor() {
+      return signedIn() && exists(editorDoc());
+    }
+    function isAdmin() {
+      return isEditor() && get(editorDoc()).data.get('admin', false) == true;
+    }
+
+    match /editors/{who} {
+      allow read: if isEditor();
+      allow create, update: if isAdmin() && who == who.lower()
+        && request.resource.data.keys().hasOnly(['admin', 'name', 'addedBy', 'addedAt'])
+        && request.resource.data.admin is bool && str(request.resource.data.name, 80)
+        && request.resource.data.addedBy == email() && request.resource.data.addedAt == request.time
+        // an admin cannot take away their own admin
+        && (who != email() || request.resource.data.admin == true);
+      allow delete: if isAdmin() && who != email();
+    }
+
+    // ---- The lexicon (moved from TaxiQ v2.17.0 firestore.rules): the owner's own research, never
+    // imported from a dictionary. Words grouped by root, dialect forms, example sentences and the
+    // sources cited. Corpus editors are platform admins and anyone whose roles entry has corpus: true.
+    // Reading is editors only for now: open it up by changing corpusReader() alone.
+    // Every write also adds a corpusHistory entry in the same batch (the document names it in
+    // historyId, checked with getAfter); history is append-only. Editors may delete corpus documents:
+    // the history keeps the before snapshot.
+    function corpusEditor() {
+      // In the corpus project: anyone in editors/{email} (TaxiQ used its roles' corpus flag).
+      return isEditor();
+    }
+    function corpusReader() {
+      return corpusEditor();
+    }
+    // '' (where allowed) or text with Thaana letters (U+0780 to U+07BF).
+    function corpusThaana(v, max, allowEmpty) {
+      return v is string && v.size() <= max
+        && ((allowEmpty && v == '') || v.matches('(?s).*[\\x{0780}-\\x{07BF}].*'));
+    }
+    function corpusList(v, max) {
+      return v is list && v.size() <= max;
+    }
+    function corpusDialect(v) {
+      // Keep in step with DIALECTS in src/core/corpus.ts.
+      return v in ['male', 'addu', 'huvadhu', 'mulaku', 'naifaru'];
+    }
+    // Who and when: created once, updated on every write, always by the writer.
+    function corpusMeta(d) {
+      return d.updatedBy == email() && d.updatedAt == request.time
+        && (resource == null
+          ? d.createdBy == email() && d.createdAt == request.time
+          : d.createdBy == resource.data.createdBy && d.createdAt == resource.data.createdAt);
+    }
+    function corpusVerified(d) {
+      return d.verified is bool && d.verifiedBy is string
+        && ((d.verified == false && d.verifiedBy == '')
+          || (d.verified == true && (d.verifiedBy == email()
+            || (resource != null && resource.data.get('verified', false) == true && d.verifiedBy == resource.data.get('verifiedBy', '')))));
+    }
+    // The history entry written in the same batch, for this document.
+    function corpusLogged(col, docId) {
+      let h = getAfter(/databases/$(database)/documents/corpusHistory/$(request.resource.data.historyId)).data;
+      return h.collection == col && h.docId == docId && h.by == email() && h.at == request.time;
+    }
+    function corpusMetaKeys() {
+      return ['createdBy', 'createdAt', 'updatedBy', 'updatedAt', 'historyId'];
+    }
+    match /corpusRoots/{id} {
+      function ok(d) {
+        return d.keys().hasOnly(['thaana', 'latin', 'meaningEn', 'meaningDv', 'origin', 'notes', 'sources', 'verified', 'verifiedBy'].concat(corpusMetaKeys()))
+          && d.keys().hasAll(['thaana', 'latin', 'meaningEn', 'meaningDv', 'origin', 'notes', 'sources', 'verified', 'verifiedBy'].concat(corpusMetaKeys()))
+          && d.historyId is string
+          && corpusThaana(d.thaana, 80, false)
+          && str(d.latin, 80) && str(d.meaningEn, 500) && str(d.meaningDv, 500) && str(d.notes, 1000)
+          && d.origin in ['', 'sanskrit', 'pali', 'arabic', 'persian', 'urdu', 'hindi', 'english', 'portuguese', 'other']
+          && corpusList(d.sources, 30)
+          && corpusVerified(d) && corpusMeta(d) && corpusLogged('corpusRoots', id);
+      }
+      allow read: if corpusReader();
+      allow create, update: if corpusEditor() && ok(request.resource.data);
+      allow delete: if corpusEditor();
+    }
+    match /corpusWords/{wordId} {
+      // Thaana may be empty for a draft known only by its Latin spelling.
+      function ok(d) {
+        return d.keys().hasOnly(['thaana', 'latin', 'rootId', 'pos', 'meaningEn', 'meaningDv', 'category', 'scientificName', 'partUsed', 'notes', 'sources', 'verified', 'verifiedBy'].concat(corpusMetaKeys()))
+          && d.keys().hasAll(['thaana', 'latin', 'rootId', 'pos', 'meaningEn', 'meaningDv', 'category', 'scientificName', 'partUsed', 'notes', 'sources', 'verified', 'verifiedBy'].concat(corpusMetaKeys()))
+          && d.historyId is string
+          && corpusThaana(d.thaana, 80, true)
+          && str(d.latin, 80) && (d.thaana != '' || d.latin != '')
+          && str(d.rootId, 128)
+          && d.pos in ['', 'noun', 'verb', 'adjective', 'adverb', 'pronoun', 'particle', 'other']
+          && str(d.meaningEn, 500) && str(d.meaningDv, 500)
+          && d.category in ['', 'medicine', 'plant', 'vehicle', 'place', 'food', 'sea', 'general', 'other']
+          && str(d.scientificName, 80)
+          && d.partUsed in ['', 'seed', 'leaf', 'root', 'bark', 'fruit', 'flower', 'oil', 'whole', 'other']
+          && str(d.notes, 1000) && corpusList(d.sources, 30)
+          && corpusVerified(d) && corpusMeta(d) && corpusLogged('corpusWords', wordId);
+      }
+      allow read: if corpusReader();
+      allow create, update: if corpusEditor() && ok(request.resource.data);
+      allow delete: if corpusEditor();
+
+      match /forms/{dialect} {
+        function formOk(d) {
+          return corpusDialect(dialect)
+            && d.keys().hasOnly(['thaana', 'latin', 'pronunciation', 'notes', 'speaker', 'sources'].concat(corpusMetaKeys()))
+            && d.keys().hasAll(['thaana', 'latin', 'pronunciation', 'notes', 'speaker', 'sources'].concat(corpusMetaKeys()))
+            && d.historyId is string
+            && corpusThaana(d.thaana, 80, true)
+            && str(d.latin, 80) && str(d.pronunciation, 200) && str(d.notes, 1000)
+            // A short label like 'elder, Hithadhoo': never a full name or phone number.
+            && str(d.speaker, 60) && !d.speaker.matches('.*([0-9]{5,}|@).*')
+            && corpusList(d.sources, 30)
+            && corpusMeta(d) && corpusLogged('corpusForms', wordId + '/' + dialect)
+            && existsAfter(/databases/$(database)/documents/corpusWords/$(wordId));
+        }
+        allow read: if corpusReader();
+        allow create, update: if corpusEditor() && formOk(request.resource.data);
+        allow delete: if corpusEditor();
+      }
+    }
+    // Every word's forms in one query (collectionGroup('forms')): the word list's dialect counts and
+    // search, and the export. Read only; writes go through corpusWords/{wordId}/forms above.
+    match /{path=**}/forms/{dialect} {
+      allow read: if corpusReader();
+    }
+    match /corpusSentences/{id} {
+      function ok(d) {
+        return d.keys().hasOnly(['thaana', 'translationEn', 'dialect', 'wordIds', 'sources', 'notes'].concat(corpusMetaKeys()))
+          && d.keys().hasAll(['thaana', 'translationEn', 'dialect', 'wordIds', 'sources', 'notes'].concat(corpusMetaKeys()))
+          && d.historyId is string
+          && corpusThaana(d.thaana, 500, false)
+          && str(d.translationEn, 500) && str(d.notes, 1000)
+          && (d.dialect == '' || corpusDialect(d.dialect))
+          && corpusList(d.wordIds, 50) && corpusList(d.sources, 30)
+          && corpusMeta(d) && corpusLogged('corpusSentences', id);
+      }
+      allow read: if corpusReader();
+      allow create, update: if corpusEditor() && ok(request.resource.data);
+      allow delete: if corpusEditor();
+    }
+    match /corpusSources/{id} {
+      function ok(d) {
+        return d.keys().hasOnly(['kind', 'title', 'author', 'year', 'details', 'permission'].concat(corpusMetaKeys()))
+          && d.keys().hasAll(['kind', 'title', 'author', 'year', 'details', 'permission'].concat(corpusMetaKeys()))
+          && d.historyId is string
+          && d.kind in ['book', 'list', 'person', 'fieldwork', 'website', 'other']
+          && str(d.title, 200) && d.title.size() > 0
+          && str(d.author, 200) && str(d.year, 20) && str(d.details, 300) && str(d.permission, 200)
+          && corpusMeta(d) && corpusLogged('corpusSources', id);
+      }
+      allow read: if corpusReader();
+      allow create, update: if corpusEditor() && ok(request.resource.data);
+      allow delete: if corpusEditor();
+    }
+    // Append-only: created by an editor, as themselves, now; never changed or deleted.
+    match /corpusHistory/{id} {
+      allow read: if corpusReader();
+      allow create: if corpusEditor()
+        && request.resource.data.keys().hasOnly(['collection', 'docId', 'action', 'before', 'after', 'by', 'at'])
+        && request.resource.data.keys().hasAll(['collection', 'docId', 'action', 'before', 'after', 'by', 'at'])
+        && request.resource.data.by == email()
+        && request.resource.data.at == request.time
+        && request.resource.data.collection in ['corpusRoots', 'corpusWords', 'corpusForms', 'corpusSentences', 'corpusSources', 'corpusApps', 'corpusStrings']
+        && str(request.resource.data.docId, 300)
+        && request.resource.data.action in ['create', 'update', 'delete', 'verify']
+        && (request.resource.data.before == null || request.resource.data.before is map)
+        && (request.resource.data.after == null || request.resource.data.after is map);
+      allow update, delete: if false;
+    }
+
+    // ---- App labels (src/core/strings.ts, src/strings.ts).
+    function appId(a) {
+      return a is string && a.matches('^[a-z0-9][a-z0-9-]{1,39}$');
+    }
+    match /apps/{app} {
+      function ok(d) {
+        return d.keys().hasOnly(['name', 'description', 'kind', 'keyStyle', 'repo'].concat(corpusMetaKeys()))
+          && d.keys().hasAll(['name', 'description', 'kind', 'keyStyle', 'repo'].concat(corpusMetaKeys()))
+          && d.historyId is string
+          && str(d.name, 80) && d.name.size() > 0 && str(d.description, 300) && str(d.repo, 200)
+          && d.kind in ['web', 'server', 'desktop', 'mobile', 'other']
+          && d.keyStyle in ['keys', 'text']
+          && corpusMeta(d) && corpusLogged('corpusApps', app);
+      }
+      // The list of connected apps is public (names only); editing is for editors.
+      allow read: if true;
+      allow create, update: if isEditor() && appId(app) && ok(request.resource.data);
+      allow delete: if isAdmin();
+    }
+    match /strings/{id} {
+      function keys() {
+        return ['app', 'key', 'en', 'builtIn', 'fix', 'status', 'context', 'where', 'group', 'wordIds', 'notes', 'checkedBy', 'retired'];
+      }
+      // Who reviewed: set to the writer when the status or the fix changes; kept as it was otherwise
+      // (an import refreshing "where" does not take over someone's review).
+      function reviewOk(d) {
+        return (d.status == 'new' && d.checkedBy == '')
+          || (d.status != 'new' && d.checkedBy == email())
+          || (resource != null && d.status == resource.data.status && d.fix == resource.data.fix && d.checkedBy == resource.data.checkedBy);
+      }
+      function ok(d) {
+        return d.keys().hasOnly(keys().concat(corpusMetaKeys())) && d.keys().hasAll(keys().concat(corpusMetaKeys()))
+          && d.historyId is string
+          && appId(d.app) && id.matches('^' + d.app + '~.+') && exists(/databases/$(database)/documents/apps/$(d.app))
+          && str(d.key, 200) && d.key.size() > 0
+          && str(d.en, 4000) && str(d.builtIn, 4000) && d.builtIn.matches('(?s).*[\\x{0780}-\\x{07BF}].*')
+          && str(d.fix, 4000) && (d.fix == '' || d.fix.matches('(?s).*[\\x{0780}-\\x{07BF}].*'))
+          && d.status in ['new', 'checked', 'fixed'] && (d.status != 'fixed' || d.fix.size() > 0)
+          && str(d.context, 300) && corpusList(d.where, 40) && str(d.group, 80)
+          && corpusList(d.wordIds, 50) && str(d.notes, 1000) && str(d.checkedBy, 200)
+          && d.retired is bool
+          && reviewOk(d)
+          && corpusMeta(d) && corpusLogged('corpusStrings', id)
+          // a string never moves to another app or key
+          && (resource == null || (d.app == resource.data.app && d.key == resource.data.key));
+      }
+      allow read: if isEditor();
+      allow create, update: if isEditor() && ok(request.resource.data);
+      // Never deleted: a string the app no longer has is marked retired (the history stays readable).
+      allow delete: if false;
+    }
+    // The corrections each app shows, written with every fix (src/strings.ts publishFor). Public:
+    // the website, fc-api, Madhoshi, Aailaa and TaxiQ read it without signing in (docs/API.md).
+    match /published/{app} {
+      allow read: if true;
+      allow create, update: if isEditor() && appId(app)
+        && exists(/databases/$(database)/documents/apps/$(app))
+        && request.resource.data.keys().hasOnly(['entries', 'count', 'updatedBy', 'updatedAt'])
+        && request.resource.data.entries is map && request.resource.data.entries.size() <= 5000
+        && request.resource.data.count == request.resource.data.entries.size()
+        && request.resource.data.updatedBy == email() && request.resource.data.updatedAt == request.time;
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

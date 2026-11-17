@@ -1,0 +1,70 @@
+
+    // ---- App labels (src/core/strings.ts, src/strings.ts).
+    function appId(a) {
+      return a is string && a.matches('^[a-z0-9][a-z0-9-]{1,39}$');
+    }
+    match /apps/{app} {
+      function ok(d) {
+        return d.keys().hasOnly(['name', 'description', 'kind', 'keyStyle', 'repo'].concat(corpusMetaKeys()))
+          && d.keys().hasAll(['name', 'description', 'kind', 'keyStyle', 'repo'].concat(corpusMetaKeys()))
+          && d.historyId is string
+          && str(d.name, 80) && d.name.size() > 0 && str(d.description, 300) && str(d.repo, 200)
+          && d.kind in ['web', 'server', 'desktop', 'mobile', 'other']
+          && d.keyStyle in ['keys', 'text']
+          && corpusMeta(d) && corpusLogged('corpusApps', app);
+      }
+      // The list of connected apps is public (names only); editing is for editors.
+      allow read: if true;
+      allow create, update: if isEditor() && appId(app) && ok(request.resource.data);
+      allow delete: if isAdmin();
+    }
+    match /strings/{id} {
+      function keys() {
+        return ['app', 'key', 'en', 'builtIn', 'fix', 'status', 'context', 'where', 'group', 'wordIds', 'notes', 'checkedBy', 'retired'];
+      }
+      // Who reviewed: set to the writer when the status or the fix changes; kept as it was otherwise
+      // (an import refreshing "where" does not take over someone's review).
+      function reviewOk(d) {
+        return (d.status == 'new' && d.checkedBy == '')
+          || (d.status != 'new' && d.checkedBy == email())
+          || (resource != null && d.status == resource.data.status && d.fix == resource.data.fix && d.checkedBy == resource.data.checkedBy);
+      }
+      function ok(d) {
+        return d.keys().hasOnly(keys().concat(corpusMetaKeys())) && d.keys().hasAll(keys().concat(corpusMetaKeys()))
+          && d.historyId is string
+          && appId(d.app) && id.matches('^' + d.app + '~.+') && exists(/databases/$(database)/documents/apps/$(d.app))
+          && str(d.key, 200) && d.key.size() > 0
+          && str(d.en, 4000) && str(d.builtIn, 4000) && d.builtIn.matches('(?s).*[\\x{0780}-\\x{07BF}].*')
+          && str(d.fix, 4000) && (d.fix == '' || d.fix.matches('(?s).*[\\x{0780}-\\x{07BF}].*'))
+          && d.status in ['new', 'checked', 'fixed'] && (d.status != 'fixed' || d.fix.size() > 0)
+          && str(d.context, 300) && corpusList(d.where, 40) && str(d.group, 80)
+          && corpusList(d.wordIds, 50) && str(d.notes, 1000) && str(d.checkedBy, 200)
+          && d.retired is bool
+          && reviewOk(d)
+          && corpusMeta(d) && corpusLogged('corpusStrings', id)
+          // a string never moves to another app or key
+          && (resource == null || (d.app == resource.data.app && d.key == resource.data.key));
+      }
+      allow read: if isEditor();
+      allow create, update: if isEditor() && ok(request.resource.data);
+      // Never deleted: a string the app no longer has is marked retired (the history stays readable).
+      allow delete: if false;
+    }
+    // The corrections each app shows, written with every fix (src/strings.ts publishFor). Public:
+    // the website, fc-api, Madhoshi, Aailaa and TaxiQ read it without signing in (docs/API.md).
+    match /published/{app} {
+      allow read: if true;
+      allow create, update: if isEditor() && appId(app)
+        && exists(/databases/$(database)/documents/apps/$(app))
+        && request.resource.data.keys().hasOnly(['entries', 'count', 'updatedBy', 'updatedAt'])
+        && request.resource.data.entries is map && request.resource.data.entries.size() <= 5000
+        && request.resource.data.count == request.resource.data.entries.size()
+        && request.resource.data.updatedBy == email() && request.resource.data.updatedAt == request.time;
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

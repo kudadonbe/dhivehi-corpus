@@ -1,0 +1,42 @@
+rules_version = '2';
+
+// Dhivehi corpus (docs/ARCHITECTURE.md). Two parts:
+// - the lexicon: roots, words, dialect forms, sentences, sources (moved from TaxiQ, same shapes and
+//   checks as TaxiQ's corpus section; src/core/corpus.ts);
+// - app labels: every Dhivehi string of every connected app, its review and corrections
+//   (src/core/strings.ts), and published/{app}, the corrections each app reads (public, read-only).
+// Every edit of either part adds an append-only corpusHistory entry in the same batch.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+    function email() {
+      return request.auth.token.email.lower();
+    }
+    function str(v, max) {
+      return v is string && v.size() <= max;
+    }
+    function editorDoc() {
+      return /databases/$(database)/documents/editors/$(email());
+    }
+    // Editors are listed in editors/{email}; admins (admin: true) manage the list. The first admin
+    // is added by hand in the Firebase console (docs/SETUP.md).
+    function isEditor() {
+      return signedIn() && exists(editorDoc());
+    }
+    function isAdmin() {
+      return isEditor() && get(editorDoc()).data.get('admin', false) == true;
+    }
+
+    match /editors/{who} {
+      allow read: if isEditor();
+      allow create, update: if isAdmin() && who == who.lower()
+        && request.resource.data.keys().hasOnly(['admin', 'name', 'addedBy', 'addedAt'])
+        && request.resource.data.admin is bool && str(request.resource.data.name, 80)
+        && request.resource.data.addedBy == email() && request.resource.data.addedAt == request.time
+        // an admin cannot take away their own admin
+        && (who != email() || request.resource.data.admin == true);
+      allow delete: if isAdmin() && who != email();
+    }
+
