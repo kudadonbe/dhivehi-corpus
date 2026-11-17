@@ -15,7 +15,7 @@ describe('seed/fc-eforms.json', () => {
     for (const s of raw.strings.slice(0, 50)) expect(await textKey(s.dv)).toBe(s.key)
   })
   it('holds the test banner wording to be corrected', () => {
-    const hit = raw.strings.filter((s: { dv: string }) => s.dv.includes('ޓެސްޓު ސައިޓެވެ'))
+    const hit = raw.strings.filter((s: { dv: string }) => s.dv.includes('ޓެސްޓު ކުރުމަށް ހަދާފައިވާ ސައިޓެކެވެ'))
     expect(hit.length).toBe(1)
     expect(hit[0].where[0]).toMatch(/class-fc-eforms-seed\.php:\d+/)
     expect(hit[0].context).toMatch(/HTML/)
