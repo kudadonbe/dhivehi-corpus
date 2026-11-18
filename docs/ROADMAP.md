@@ -10,7 +10,7 @@
 | 6 | TaxiQ as a client: export script for `src/i18n.tsx` (keys style), its pencil editor writes here, `applyOverrides` fed from `published/taxiq`; corpus screens and collections leave TaxiQ; apply `seed/taxiq-fixes.json` | After 4 |
 | 7 | Aailaa (`project-docs/translation-dhivehi.json`, 804 entries, keys style), Madhoshi (Go: SMS page Dhivehi, `sms_text.go` …), fc-api | After 5 |
 | 8 | Links between labels and the lexicon (`wordIds` on a string; "this label uses ބަސް") and a glossary of court terms every app follows | Later |
-| 9 | Public reading of the lexicon (rules: `corpusReader()`), if the owner decides | Owner's call |
+| 9 | **Public project** (decided 2026-11-18): repo public, data CC BY-SA 4.0, code MIT; anyone reads the lexicon; anyone signed in suggests words, forms, sentences and label corrections; editors review and publish | Next |
 
 ## Decided (project lead, 2026-11-17)
 
@@ -19,3 +19,4 @@
 - Its own Firebase project (not TaxiQ's `kd-taxiq`, not the court's `aqd-fc`).
 - TaxiQ's corpus moves out; TaxiQ becomes a client.
 - Repo name `dhivehi-corpus`.
+- **The corpus is a public project** (2026-11-18): everyone welcome to contribute; data CC BY-SA 4.0, code MIT; hosted on Firebase (project `kd-dhivehi-corpus`) until the owner's VPS, then moved there.

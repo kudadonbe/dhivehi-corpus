@@ -20,6 +20,11 @@ One home for the Dhivehi language as our apps use it:
 Every app keeps its built-in text and shows a correction instead when there is one. If the corpus
 cannot be reached, the app shows its built-in text: nothing ever waits on the corpus.
 
+## Open project
+
+The corpus is public and everyone is welcome to contribute: see [CONTRIBUTING.md](CONTRIBUTING.md).
+Data: [CC BY-SA 4.0](DATA-LICENSE.md). Code: [MIT](LICENSE).
+
 ## Docs
 
 | | |
