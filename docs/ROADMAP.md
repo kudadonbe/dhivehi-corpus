@@ -11,6 +11,7 @@
 | 7 | Aailaa (`project-docs/translation-dhivehi.json`, 804 entries, keys style), Madhoshi (Go: SMS page Dhivehi, `sms_text.go` …), fc-api | After 5 |
 | 8 | Links between labels and the lexicon (`wordIds` on a string; "this label uses ބަސް") and a glossary of court terms every app follows | Later |
 | 9 | **Public project** (decided 2026-11-18): repo public, data CC BY-SA 4.0, code MIT; anyone reads the lexicon; anyone signed in suggests words, forms, sentences and label corrections; editors review and publish | Next |
+| 10 | **Dhivehi interface** (lead, 2026-11-18: "corpus UI as Thaana as possible"): every interface string in `src/ui/text.ts`, page right to left; the site is app `dhivehi-corpus` in its own corpus (`seed/dhivehi-corpus.json`), so staff check the drafted Dhivehi on the App labels page and corrections show live | **Built 2026-11-18** (v0.2.0); Dhivehi draft awaits staff review |
 
 ## Decided (project lead, 2026-11-17)
 

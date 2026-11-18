@@ -5,44 +5,48 @@ import { Apps } from './components/Apps'
 import { Editors } from './components/Editors'
 import { Labels } from './components/Labels'
 import { Lexicon } from './components/Lexicon'
+import { useT } from './ui/i18n'
+import type { UiKey } from './ui/text'
 
 type View = 'labels' | 'apps' | 'lexicon' | 'editors'
 
 export default function App() {
   const { ready, user, email, editor, admin, error, signIn, signOut } = useAuth()
+  const t = useT()
   const [view, setView] = useState<View>('labels')
-  const tabs: [View, string][] = [['labels', 'App labels'], ['apps', 'Apps'], ['lexicon', 'Lexicon'], ...(admin ? [['editors', 'Editors'] as [View, string]] : [])]
+  const tabs: [View, UiKey][] = [['labels', 'nav.labels'], ['apps', 'nav.apps'], ['lexicon', 'nav.lexicon'], ...(admin ? [['editors', 'nav.editors'] as [View, UiKey]] : [])]
+  const Email = <bdi dir="ltr">{email}</bdi>
 
   return (
     <div className="shell">
       <header className="top">
         <div className="brand">
-          <span className="mark" lang="dv" aria-hidden="true">ބަސް</span>
+          <span className="mark" aria-hidden="true">ބަސް</span>
           <div>
-            <h1>Dhivehi corpus</h1>
-            <p className="tag" lang="dv" dir="rtl">ދިވެހި ބަހުގެ ކޯޕަސް</p>
+            <h1>{t('app.title')}</h1>
+            <p className="tag">{t('app.tagline')}</p>
           </div>
         </div>
-        {user && <div className="who"><span>{email}</span><button type="button" className="quiet" onClick={signOut}>Sign out</button></div>}
+        {user && <div className="who">{Email}<button type="button" className="quiet" onClick={signOut}>{t('auth.signOut')}</button></div>}
       </header>
 
       {!configured ? (
-        <main className="gate"><h2>Not set up yet</h2><p>This copy has no Firebase project. Put the corpus project's web config in <code>.env.local</code> (see <code>docs/SETUP.md</code>).</p></main>
+        <main className="gate"><h2>{t('gate.notSetUp.title')}</h2><p>{t.rich('gate.notSetUp.body', { file: <code>.env.local</code>, doc: <code>docs/SETUP.md</code> })}</p></main>
       ) : !ready ? (
-        <main className="gate"><p>Loading…</p></main>
+        <main className="gate"><p>{t('gate.loading')}</p></main>
       ) : !user ? (
         <main className="gate">
-          <h2>One place for every app's Dhivehi</h2>
-          <p>The words of the language, and every label the court's apps and TaxiQ show. A correction made here reaches each app at once.</p>
-          <button type="button" className="primary" onClick={signIn}>Sign in with Google</button>
-          {error && <p className="problem" role="alert">{error}</p>}
+          <h2>{t('gate.welcome.title')}</h2>
+          <p>{t('gate.welcome.body')}</p>
+          <button type="button" className="primary" onClick={signIn}>{t('auth.signIn')}</button>
+          {error && <p className="problem" role="alert">{t('auth.error')}</p>}
         </main>
       ) : !editor ? (
-        <main className="gate"><h2>Not an editor yet</h2><p>{email} is not on the list of editors. Ask an admin to add this address, then reload.</p></main>
+        <main className="gate"><h2>{t('gate.notEditor.title')}</h2><p>{t.rich('gate.notEditor.body', { email: Email })}</p></main>
       ) : (
         <>
-          <nav className="tabs" aria-label="Corpus">
-            {tabs.map(([id, label]) => <button key={id} type="button" aria-current={view === id ? 'page' : undefined} onClick={() => setView(id)}>{label}</button>)}
+          <nav className="tabs" aria-label={t('nav.aria')}>
+            {tabs.map(([id, label]) => <button key={id} type="button" aria-current={view === id ? 'page' : undefined} onClick={() => setView(id)}>{t(label)}</button>)}
           </nav>
           <main>
             {view === 'labels' && <Labels />}

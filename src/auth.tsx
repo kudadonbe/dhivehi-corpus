@@ -47,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signIn: () => {
       setError('')
       signInWithPopup(auth, googleProvider).catch((e: { code?: string }) => {
-        if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') setError('Sign-in did not work. Try again, or allow pop-ups for this site.')
+        if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') setError(e.code ?? 'failed') // the message itself: auth.error (src/ui/text.ts)
       })
     },
     signOut: () => void signOut(auth),

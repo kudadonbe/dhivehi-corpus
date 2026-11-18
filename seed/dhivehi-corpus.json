@@ -1,0 +1,2078 @@
+{
+  "format": "dhivehi-corpus/strings-1",
+  "app": "dhivehi-corpus",
+  "name": "Dhivehi corpus (this site)",
+  "keyStyle": "keys",
+  "strings": [
+    {
+      "key": "app.title",
+      "dv": "ދިވެހި ބަހުގެ ކޯޕަސް",
+      "en": "Dhivehi corpus",
+      "group": "app",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "app.tagline",
+      "dv": "ބަސްތަކާއި، އެޕްތަކުގެ ދިވެހި، އެއްތަނެއްގައި",
+      "en": "The words, and the apps' Dhivehi, in one place",
+      "group": "app",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "nav.aria",
+      "dv": "ކޯޕަސް",
+      "en": "Corpus",
+      "group": "nav",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "nav.labels",
+      "dv": "އެޕްތަކުގެ ލޭބަލްތައް",
+      "en": "App labels",
+      "group": "nav",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "nav.apps",
+      "dv": "އެޕްތައް",
+      "en": "Apps",
+      "group": "nav",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "nav.lexicon",
+      "dv": "ބަސްފޮތް",
+      "en": "Lexicon",
+      "group": "nav",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "nav.editors",
+      "dv": "އެޑިޓަރުން",
+      "en": "Editors",
+      "group": "nav",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "auth.signIn",
+      "dv": "ގޫގުލް އިން ސައިން އިން ކުރައްވާ",
+      "en": "Sign in with Google",
+      "group": "auth",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "auth.signOut",
+      "dv": "ސައިން އައުޓް",
+      "en": "Sign out",
+      "group": "auth",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "auth.error",
+      "dv": "ސައިން އިން ނުވި. އަލުން މަސައްކަތްކޮށްލައްވާ، ނުވަތަ މި ސައިޓަށް ޕޮޕްއަޕް ހުއްދަކޮށްދެއްވާ.",
+      "en": "Sign-in did not work. Try again, or allow pop-ups for this site.",
+      "group": "auth",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.notSetUp.title",
+      "dv": "އަދި ސެޓަޕް ކޮށްފައެއް ނުވޭ",
+      "en": "Not set up yet",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.notSetUp.body",
+      "dv": "މި ކޮޕީގައި ފަޔަރބޭސް ޕްރޮޖެކްޓެއް ނެތް. ކޯޕަސް ޕްރޮޖެކްޓުގެ ވެބް ކޮންފިގް {file} ގައި ލައްވާ ({doc} ބައްލަވާ).",
+      "en": "This copy has no Firebase project. Put the corpus project's web config in {file} (see {doc}).",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.loading",
+      "dv": "ލޯޑުވަނީ…",
+      "en": "Loading…",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.welcome.title",
+      "dv": "ކޮންމެ އެޕެއްގެ ދިވެހި، އެއްތަނެއްގައި",
+      "en": "One place for every app's Dhivehi",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.welcome.body",
+      "dv": "ދިވެހި ބަހުގެ ބަސްތަކާއި، ކޯޓުގެ އެޕްތަކާއި TaxiQ ދައްކާ ކޮންމެ ލޭބަލެއް. މިތާނގައި ކުރާ ރަނގަޅުކުރުމެއް އެ އެޕަކަށް އެވަގުތުން ދެއެވެ.",
+      "en": "The words of the language, and every label the court's apps and TaxiQ show. A correction made here reaches each app at once.",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.notEditor.title",
+      "dv": "އަދި އެޑިޓަރެއް ނޫން",
+      "en": "Not an editor yet",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "gate.notEditor.body",
+      "dv": "{email} އަކީ އެޑިޓަރުންގެ ލިސްޓުގައިވާ އެޑްރެހެއް ނޫން. މި އެޑްރެސް އިތުރުކުރުމަށް އެޑްމިނެއްގެ ކިބައިން އެދިވަޑައިގެން، ދެން ޕޭޖު ރީލޯޑް ކުރައްވާ.",
+      "en": "{email} is not on the list of editors. Ask an admin to add this address, then reload.",
+      "group": "gate",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.search",
+      "dv": "ހޯދާ",
+      "en": "Search",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.save",
+      "dv": "ރައްކާކުރޭ",
+      "en": "Save",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.saving",
+      "dv": "ރައްކާކުރަނީ…",
+      "en": "Saving…",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.saved",
+      "dv": "ރައްކާކުރެވިއްޖެ",
+      "en": "Saved",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.notSaved",
+      "dv": "ރައްކާ ނުކުރެވުނު.",
+      "en": "Not saved.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.notSavedRetry",
+      "dv": "ރައްކާ ނުކުރެވުނު. އަލުން މަސައްކަތްކޮށްލައްވާ.",
+      "en": "Not saved. Try again.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.notSavedFields",
+      "dv": "ރައްކާ ނުކުރެވުނު. ފީލްޑުތަކާއި ކަނެކްޝަން ބައްލަވާފައި އަލުން މަސައްކަތްކޮށްލައްވާ.",
+      "en": "Not saved. Check the fields and the connection, and try again.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.cancel",
+      "dv": "ކެންސަލް",
+      "en": "Cancel",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.close",
+      "dv": "ބަންދުކުރޭ",
+      "en": "Close",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.edit",
+      "dv": "ބަދަލުކުރޭ",
+      "en": "Edit",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.back",
+      "dv": "→ ފަހަތަށް",
+      "en": "← Back",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.delete",
+      "dv": "ފުހެލާ",
+      "en": "Delete",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.deleteArmed",
+      "dv": "ފުހެލުމަށް އަނެއްކާ ފިތާލައްވާ",
+      "en": "Tap again to delete",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.notDeleted",
+      "dv": "ނުފުހެވުނު.",
+      "en": "Not deleted.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.remove",
+      "dv": "ނައްތާލާ",
+      "en": "Remove",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.notRemoved",
+      "dv": "ނުނައްތާލެވުނު.",
+      "en": "Not removed.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.notDone",
+      "dv": "ނުކުރެވުނު.",
+      "en": "Not done.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.none",
+      "dv": "ނެތް",
+      "en": "None",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.other",
+      "dv": "އެހެނިހެން",
+      "en": "Other",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.nothingMatches",
+      "dv": "އެއްވެސް އެއްޗެއް ނުފެނުނު.",
+      "en": "Nothing matches.",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.phonetic",
+      "dv": "ތާނަ ލިޔުން (ފޮނެޓިކް)",
+      "en": "Type Thaana (phonetic)",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "common.name",
+      "dv": "ނަން",
+      "en": "Name",
+      "group": "common",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.noApps",
+      "dv": "އަދި އެއްވެސް އެޕެއް ގުޅާފައެއް ނުވޭ. {apps} ގައި އެޕެއް އިތުރުކޮށް، އޭގެ ލޭބަލްތައް އިމްޕޯޓް ކުރައްވާ.",
+      "en": "No app is connected yet. Add one under {apps} and import its strings.",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.app",
+      "dv": "އެޕް",
+      "en": "App",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.part",
+      "dv": "ބައި",
+      "en": "Part",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.everyPart",
+      "dv": "ހުރިހާ ބައިތަކެއް",
+      "en": "Every part",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.searchHint",
+      "dv": "ދިވެހި، އިނގިރޭސި، ފައިލް ނުވަތަ ކީ",
+      "en": "Dhivehi, English, file or key",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.progress",
+      "dv": "ބެލުމުގެ ކުރިއެރުން",
+      "en": "Review progress",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.reviewedOf",
+      "dv": "{total} ން {done} ބަލައިފި",
+      "en": "{done} of {total} reviewed",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.tally",
+      "dv": "{new} ބަލަންޖެހޭ · {fixed} ރަނގަޅުކުރެވިފައި · {checked} ހުރިގޮތަށް ރަނގަޅު · ޖުމްލަ {total}",
+      "en": "{new} to review · {fixed} corrected · {checked} correct as is · {total} in all",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.show",
+      "dv": "ދައްކާ",
+      "en": "Show",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.nothing",
+      "dv": "މިތާ އެއްވެސް އެއްޗެއް ނެތް.",
+      "en": "Nothing here.",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.allReviewed",
+      "dv": "މި ބައިގެ ހުރިހާ ލޭބަލެއް ބަލައިފި.",
+      "en": "Every string of this part is reviewed.",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "labels.more",
+      "dv": "އިތުރަށް {n} ދައްކާ ({left} ބާކީ)",
+      "en": "Show {n} more of {left}",
+      "group": "labels",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "status.new",
+      "dv": "ބަލަންޖެހޭ",
+      "en": "To review",
+      "group": "status",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "status.fixed",
+      "dv": "ރަނގަޅުކުރެވިފައި",
+      "en": "Corrected",
+      "group": "status",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "status.checked",
+      "dv": "ހުރިގޮތަށް ރަނގަޅު",
+      "en": "Correct as is",
+      "group": "status",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "status.all",
+      "dv": "ހުރިހާ",
+      "en": "All",
+      "group": "status",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.correctedBy",
+      "dv": "ރަނގަޅުކުރީ {who}",
+      "en": "Corrected by {who}",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.checkedBy",
+      "dv": "ބެލީ {who}",
+      "en": "Checked by {who}",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.correction",
+      "dv": "ރަނގަޅުކުރުން",
+      "en": "Correction",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.save",
+      "dv": "ރަނގަޅުކުރުން ރައްކާކުރޭ",
+      "en": "Save correction",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.correctAsIs",
+      "dv": "ހުރިގޮތަށް ރަނގަޅު",
+      "en": "Correct as it is",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.write",
+      "dv": "ރަނގަޅުކުރުމެއް ލިޔޭ",
+      "en": "Write a correction",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.change",
+      "dv": "ރަނގަޅުކުރުން ބަދަލުކުރޭ",
+      "en": "Change correction",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.back",
+      "dv": "އަނބުރާ ބަލަންޖެހޭ ތަނަށް",
+      "en": "Back to review",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.denied",
+      "dv": "ރައްކާ ނުކުރެވުނު: ތިޔަބޭފުޅާއަކީ އެޑިޓަރެއް ނޫން، ނުވަތަ ލިޔުމުން ގަވާއިދެއް ހަލާކުވޭ.",
+      "en": "Not saved: you are not an editor, or the text breaks a rule.",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "review.failed",
+      "dv": "ރައްކާ ނުކުރެވުނު. ކަނެކްޝަން ބައްލަވާފައި އަލުން މަސައްކަތްކޮށްލައްވާ.",
+      "en": "Not saved. Check the connection and try again.",
+      "group": "review",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "fix.empty",
+      "dv": "ފުރަތަމަ ރަނގަޅުކުރުން ލިޔުއްވާ.",
+      "en": "Write the correction first.",
+      "group": "fix",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "fix.too_long",
+      "dv": "ދިގުވެއްޖެ: އެންމެ ގިނަވެގެން 4,000 އަކުރު.",
+      "en": "Too long: 4,000 characters at most.",
+      "group": "fix",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "fix.not_thaana",
+      "dv": "ރަނގަޅުކުރުން ލިޔަންވާނީ ދިވެހިން (ތާނަ އަކުރުން).",
+      "en": "The correction must be in Dhivehi (Thaana letters).",
+      "group": "fix",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "fix.placeholders",
+      "dv": "ފުރަންޖެހޭ ތަންތަން (މިސާލަކަށް {code} ނުވަތަ %s) އަސްލުގައިވާ ގޮތަށް ބަހައްޓަވާ: އެތަންތަން ފުރާނީ އެޕުންނެވެ.",
+      "en": "Keep every placeholder exactly as in the original, e.g. {code} or %s: the app fills them in.",
+      "group": "fix",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "fix.same",
+      "dv": "މިއީ އަސްލާ އެއްގޮތް. އޭގެ ބަދަލުގައި \"ހުރިގޮތަށް ރަނގަޅު\" އަށް ފިތާލައްވާ.",
+      "en": "This is the same as the original. Use \"Correct as it is\" instead.",
+      "group": "fix",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.title",
+      "dv": "ގުޅިފައިވާ އެޕްތައް",
+      "en": "Connected apps",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.add",
+      "dv": "އެޕެއް އިތުރުކުރޭ",
+      "en": "Add an app",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.saveFailed",
+      "dv": "ރައްކާ ނުކުރެވުނު. އެޕް އިތުރުކުރެވޭނީ އެޑިޓަރުންނަށް؛ ފީލްޑުތައް ބައްލަވާ.",
+      "en": "Not saved. Only editors can add apps; check the fields.",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.id",
+      "dv": "އައިޑީ (ކުޑަ އަކުރުން، އެޕް ބޭނުންކުރާ)",
+      "en": "Id (lower case, used by the app)",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.kind",
+      "dv": "ބާވަތް",
+      "en": "Kind",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.keyStyle",
+      "dv": "ލޭބަލްތައް ހޯދަނީ",
+      "en": "Labels are found by",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.byKeys",
+      "dv": "ކީތަކުން (errors.taken)",
+      "en": "keys (errors.taken)",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.byText",
+      "dv": "ދިވެހި ލިޔުމުން (ކޯޑުގައި ލިޔެފައި)",
+      "en": "their Dhivehi text (written in the code)",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.byTextPill",
+      "dv": "ލިޔުމުން",
+      "en": "by text",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.repo",
+      "dv": "ރިޕޮޒިޓަރީ",
+      "en": "Repository",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.desc",
+      "dv": "ތަފްސީލު",
+      "en": "Description",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.idRule",
+      "dv": "އައިޑީއަކީ 2 އިން 40 އަށް ކުޑަ އަކުރު، ނަންބަރު ނުވަތަ ހައިފަން.",
+      "en": "The id is 2 to 40 lower-case letters, digits or hyphens.",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.save",
+      "dv": "އެޕް ރައްކާކުރޭ",
+      "en": "Save app",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.code",
+      "dv": "ކޯޑު: {repo}",
+      "en": "Code: {repo}",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.published",
+      "dv": "މި އެޕުގެ ރަނގަޅުކުރުންތައް (އާންމު، ކިޔުމަށް އެކަނި): {url}",
+      "en": "Corrections for this app, public and read-only: {url}",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.download",
+      "dv": "ރަނގަޅުކުރުންތައް ޑައުންލޯޑް ކުރޭ (ކޯޑުގައި ލިޔުމަށް)",
+      "en": "Download corrections (to write into the code)",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.republish",
+      "dv": "އަލުން ޝާއިޢުކުރޭ",
+      "en": "Republish",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "apps.republished",
+      "dv": "ލޭބަލްތަކުން އަލުން ޝާއިޢުކުރެވިއްޖެ.",
+      "en": "Published again from the strings.",
+      "group": "apps",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "kind.web",
+      "dv": "ވެބް",
+      "en": "web",
+      "group": "kind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "kind.server",
+      "dv": "ސާވަރ",
+      "en": "server",
+      "group": "kind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "kind.desktop",
+      "dv": "ޑެސްކްޓޮޕް",
+      "en": "desktop",
+      "group": "kind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "kind.mobile",
+      "dv": "މޯބައިލް",
+      "en": "mobile",
+      "group": "kind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.title",
+      "dv": "އެޕެއްގެ ލޭބަލްތައް އިމްޕޯޓް ކުރުން",
+      "en": "Import an app's strings",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.hint",
+      "dv": "{doc} (\"Import format\") ގައިވާ ފޯމެޓުގައި، އެޕުގެ އަމިއްލަ އެކްސްޕޯޓް ސްކްރިޕްޓުން ހަދާ JSON ފައިލެއް. ކުރިން ކޮށްފައިވާ ރަނގަޅުކުރުންތައް ބާކީ ހުންނާނެ؛ އެޕުން ދޫކޮށްލާ ލޭބަލެއް ނުފުހެ، ވަކިކޮށް ބަހައްޓާނެ.",
+      "en": "A JSON file in the format of {doc} (\"Import format\"), made by the app's own export script. Corrections already made are kept; a string the app dropped is set aside, not deleted.",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.notJson",
+      "dv": "މި ފައިލަކީ JSON ފައިލެއް ނޫން.",
+      "en": "This file is not JSON.",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.stopped",
+      "dv": "އިމްޕޯޓް މެދުކެނޑުނު. އެ ފައިލުން އަލުން ހިންގަވާ: ހުއްޓުނު ތަނުން ކުރިއަށް ދާނެ.",
+      "en": "The import stopped part way. Run it again with the same file: it carries on where it stopped.",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.saving",
+      "dv": "{total} ން {done} ރައްކާކުރަނީ…",
+      "en": "Saving {done} of {total}…",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.result",
+      "dv": "{app}: {created} އައު، {updated} ބަދަލުވި، {unchanged} ބަދަލެއް ނުވި",
+      "en": "{app}: {created} new, {updated} changed, {unchanged} unchanged",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.landed",
+      "dv": "، {n} ރަނގަޅުކުރުން މިހާރު އެޕުގެ ކޯޑުގައި",
+      "en": ", {n} corrections now in the app's code",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.reopened",
+      "dv": "، {n} އަނބުރާ ބަލަންޖެހޭ ތަނަށް (އެޕުން ބަދަލުކޮށްފި)",
+      "en": ", {n} back to review (the app changed them)",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "import.retired",
+      "dv": "، {n} އެޕުގައި އިތުރަށް ނެތް",
+      "en": ", {n} no longer in the app",
+      "group": "import",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "editors.hint",
+      "dv": "އެމީހުން ސައިން އިން ކުރާނީ މި ގޫގުލް އެޑްރެހުން. އެޑިޓަރުން ލޭބަލްތައް ބަލައި ރަނގަޅުކުރޭ؛ އެޑްމިނުންނަށް މި ލިސްޓު ވެސް ބެލެހެއްޓޭ.",
+      "en": "They sign in with this Google address. Editors review and correct; admins also manage this list.",
+      "group": "editors",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "editors.email",
+      "dv": "އީމެއިލް",
+      "en": "Email",
+      "group": "editors",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "editors.admin",
+      "dv": "އެޑްމިން",
+      "en": "Admin",
+      "group": "editors",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "editors.add",
+      "dv": "އެޑިޓަރެއް އިތުރުކުރޭ",
+      "en": "Add editor",
+      "group": "editors",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "editors.makeEditor",
+      "dv": "އެޑިޓަރަކަށް ހަދާ",
+      "en": "Make editor",
+      "group": "editors",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "editors.makeAdmin",
+      "dv": "އެޑްމިނަކަށް ހަދާ",
+      "en": "Make admin",
+      "group": "editors",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.hint",
+      "dv": "އަމިއްލަ ދިރާސާ: މޫބަސްތަކުގެ ދަށުން ބަސްތައް، ކޮންމެ ލަހެޖާއެއްގައި އެ ބަސްތައް ބުނާގޮތް، ޖުމްލަތައް، އަދި ކޮންމެ އެއްޗެއްގެ މަސްދަރު. އެއްވެސް ރަދީފަކުން ކޮޕީކޮށްފައެއް ނެތް. ކޮންމެ ބަދަލެއް ތާރީޚުގައި ރައްކާވޭ.",
+      "en": "Own research: words by root, their forms in each dialect, sentences, and the sources for each. Nothing is copied from a dictionary. Every change is kept in the history.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.export",
+      "dv": "JSON އަށް އެކްސްޕޯޓް ކުރޭ",
+      "en": "Export JSON",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.exporting",
+      "dv": "އެކްސްޕޯޓް ކުރަނީ…",
+      "en": "Exporting…",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.exportFailed",
+      "dv": "އެކްސްޕޯޓް ނުކުރެވުނު. އަލުން މަސައްކަތްކޮށްލައްވާ.",
+      "en": "Could not export. Try again.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.words",
+      "dv": "ބަސްތައް",
+      "en": "Words",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.roots",
+      "dv": "މޫބަސްތައް",
+      "en": "Roots",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.sources",
+      "dv": "މަސްދަރުތައް",
+      "en": "Sources",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.verified",
+      "dv": "ޔަގީންކުރެވިފައި",
+      "en": "Verified",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.verifiedBy",
+      "dv": "ޔަގީންކުރީ {who}",
+      "en": "Verified by {who}",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.verify",
+      "dv": "ޔަގީންކުރޭ",
+      "en": "Verify",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.unverify",
+      "dv": "ޔަގީންކުރި ފާހަގަ ނައްތާލާ",
+      "en": "Remove verified mark",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.saveBeforeVerify",
+      "dv": "ޔަގީންކުރުމުގެ ކުރިން ބަދަލުތައް ރައްކާކުރައްވާ.",
+      "en": "Save your changes before verifying.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.history",
+      "dv": "ތާރީޚު",
+      "en": "History",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noHistory",
+      "dv": "އަދި އެއްވެސް ބަދަލެއް ރެކޯޑުވެފައެއް ނެތް.",
+      "en": "No changes recorded yet.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.removedSource",
+      "dv": "ފުހެލެވިފައިވާ މަސްދަރެއް",
+      "en": "Removed source",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.removeNamed",
+      "dv": "{name} ނައްތާލާ",
+      "en": "Remove {name}",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.citeSource",
+      "dv": "މަސްދަރެއް ހަވާލާދޭ…",
+      "en": "Cite a source…",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.newSourcePlus",
+      "dv": "+ އައު މަސްދަރެއް",
+      "en": "+ New source",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.removedRoot",
+      "dv": "ފުހެލެވިފައިވާ މޫބަހެއް",
+      "en": "Removed root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.removeRoot",
+      "dv": "މޫބަސް ނައްތާލާ",
+      "en": "Remove the root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noRoot",
+      "dv": "މޫބަހެއް ނެތް",
+      "en": "No root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.searchRoots",
+      "dv": "މޫބަސްތައް ހޯދާ",
+      "en": "Search roots",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.newRootPlus",
+      "dv": "+ އައު މޫބަހެއް",
+      "en": "+ New root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.wordSearch",
+      "dv": "ތާނަ (ފިލި އާއެކު ނުވަތަ ނުލާ)، ލަތީނު ނުވަތަ މާނަ",
+      "en": "Thaana (with or without fili), Latin or meaning",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.newWord",
+      "dv": "އައު ބަހެއް",
+      "en": "New word",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.wordGone",
+      "dv": "މި ބަސް ބަސްފޮތުގައި އިތުރަށް ނެތް.",
+      "en": "This word is no longer in the lexicon.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noWords",
+      "dv": "އަދި އެއްވެސް ބަހެއް ނެތް. ފުރަތަމަ ބަސް އިތުރުކުރައްވާ، ނުވަތަ TaxiQ ގެ ބަސްތައް މިތަނަށް ބަދަލުކުރައްވާ ({doc}).",
+      "en": "No words yet. Add the first, or move TaxiQ's lexicon here ({doc}).",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.wordTally",
+      "dv": "{roots} މޫބަހުގެ ދަށުން {words} ބަސް",
+      "en": "{words} words under {roots} roots",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.wordTallyNoRoot",
+      "dv": "، {n} ބަސް މޫބަހެއް ނެތި",
+      "en": ", {n} without one",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.rootAria",
+      "dv": "މޫބަސް {name}",
+      "en": "Root {name}",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noRootAria",
+      "dv": "މޫބަހެއް ނެތް ބަސްތައް",
+      "en": "Words without a root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.openRoot",
+      "dv": "މޫބަސް ހުޅުވާ",
+      "en": "Open the root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.draft",
+      "dv": "ޑްރާފްޓް",
+      "en": "Draft",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.dialectsN",
+      "dv": "{n} ލަހެޖާ",
+      "en": "{n} dialects",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.formsFold",
+      "dv": "ލަހެޖާތަކުގައި ({n} / {all})",
+      "en": "Dialect forms ({n} of {all})",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.sentences",
+      "dv": "ޖުމްލަތައް",
+      "en": "Sentences",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.saveWordFirst",
+      "dv": "ފުރަތަމަ ބަސް ރައްކާކުރައްވާ، ދެން ލަހެޖާތަކުގައި ބުނާގޮތްތަކާއި ޖުމްލަތައް އިތުރުކުރައްވާ.",
+      "en": "Save the word first, then add its dialect forms and sentences.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noSentences",
+      "dv": "އަދި ޖުމްލައެއް ނެތް.",
+      "en": "No sentences yet.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.addSentence",
+      "dv": "+ ޖުމްލައެއް އިތުރުކުރޭ",
+      "en": "+ Add a sentence",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.sentenceThaana",
+      "dv": "ޖުމްލަ (ތާނައިން)",
+      "en": "Sentence (Thaana)",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.rootSearch",
+      "dv": "ތާނަ، ލަތީނު ނުވަތަ މާނަ",
+      "en": "Thaana, Latin or meaning",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.newRoot",
+      "dv": "އައު މޫބަހެއް",
+      "en": "New root",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.rootGone",
+      "dv": "މި މޫބަސް ބަސްފޮތުގައި އިތުރަށް ނެތް.",
+      "en": "This root is no longer in the lexicon.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noRoots",
+      "dv": "އަދި މޫބަހެއް ނެތް.",
+      "en": "No roots yet.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.wordsN",
+      "dv": "{n} ބަސް",
+      "en": "{n} words",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.wordsFold",
+      "dv": "ބަސްތައް ({n})",
+      "en": "Words ({n})",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noWordsUnderRoot",
+      "dv": "މި މޫބަހުގެ ދަށުގައި އަދި ބަހެއް ނެތް. ބަހުގެ އެޑިޓަރުގައި މި މޫބަސް އެ ބަހުގެ މޫބަހަކަށް ހޮވައިދެއްވާ.",
+      "en": "No words under this root yet. Pick it as a word's root in the word's editor.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.sourceSearch",
+      "dv": "ނަން، ލިޔުންތެރިޔާ، އަހަރު ނުވަތަ ތަފްސީލު",
+      "en": "Title, author, year or details",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.newSource",
+      "dv": "އައު މަސްދަރެއް",
+      "en": "New source",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.sourceGone",
+      "dv": "މި މަސްދަރު ބަސްފޮތުގައި އިތުރަށް ނެތް.",
+      "en": "This source is no longer in the lexicon.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "lex.noSources",
+      "dv": "އަދި މަސްދަރެއް ނެތް.",
+      "en": "No sources yet.",
+      "group": "lex",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "err.required",
+      "dv": "ލާޒިމް",
+      "en": "Required",
+      "group": "err",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "err.too_long",
+      "dv": "ދިގުވެއްޖެ",
+      "en": "Too long",
+      "group": "err",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "err.not_thaana",
+      "dv": "ތާނަ އަކުރު ބޭނުންކުރައްވާ",
+      "en": "Use Thaana letters",
+      "group": "err",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "err.bad_value",
+      "dv": "ހުއްދަ ނޫން",
+      "en": "Not allowed",
+      "group": "err",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.thaana",
+      "dv": "ތާނަ",
+      "en": "Thaana",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.latin",
+      "dv": "ލަތީނު",
+      "en": "Latin",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.meaningEn",
+      "dv": "މާނަ (އިނގިރޭސިން)",
+      "en": "Meaning (English)",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.meaningDv",
+      "dv": "މާނަ (ދިވެހިން)",
+      "en": "Meaning (Dhivehi)",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.origin",
+      "dv": "އަސްލު",
+      "en": "Origin",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.notes",
+      "dv": "ނޯޓު",
+      "en": "Notes",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.sources",
+      "dv": "މަސްދަރުތައް",
+      "en": "Sources",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.pos",
+      "dv": "ބަހުގެ ބާވަތް",
+      "en": "Part of speech",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.category",
+      "dv": "ބައި",
+      "en": "Category",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.scientificName",
+      "dv": "ސައިންސީ ނަން",
+      "en": "Scientific name",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.partUsed",
+      "dv": "ބޭނުންކުރާ ބައި",
+      "en": "Part used",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.rootId",
+      "dv": "މޫބަސް",
+      "en": "Root",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.pronunciation",
+      "dv": "ކިޔާގޮތް",
+      "en": "Pronunciation",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.speaker",
+      "dv": "ބުނި މީހާ (ކުރު ތައާރަފެއް، މިސާލަކަށް \"މުސްކުޅި މީހެއް، ހިތަދޫ\"؛ ނަމެއް ނުވަތަ ފޯނު ނަންބަރެއް ނޫން)",
+      "en": "Speaker (a short label like \"elder, Hithadhoo\", never a name or phone)",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.translationEn",
+      "dv": "ތަރުޖަމާ (އިނގިރޭސިން)",
+      "en": "Translation (English)",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.dialect",
+      "dv": "ލަހެޖާ",
+      "en": "Dialect",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.wordIds",
+      "dv": "ބަސްތައް",
+      "en": "Words",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.kind",
+      "dv": "ބާވަތް",
+      "en": "Kind",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.title",
+      "dv": "ނަން",
+      "en": "Title",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.author",
+      "dv": "ލިޔުންތެރިޔާ",
+      "en": "Author",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.year",
+      "dv": "އަހަރު",
+      "en": "Year",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.details",
+      "dv": "ތަފްސީލު (ޞަފްޙާ، އިޞްދާރު، ލައިން)",
+      "en": "Details (page, edition, row)",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.permission",
+      "dv": "ހުއްދަ (އަމިއްލަ މަސައްކަތް، ހަވާލާ އެކަނި، … ހުއްދަ ދީފައި)",
+      "en": "Permission (own work, cited only, permission given by …)",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.verified",
+      "dv": "ޔަގީންކުރެވިފައި",
+      "en": "Verified",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "field.verifiedBy",
+      "dv": "ޔަގީންކުރީ",
+      "en": "Verified by",
+      "group": "field",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "dialect.male",
+      "dv": "މާލެ (އާންމު ބަސް)",
+      "en": "Malé (standard)",
+      "group": "dialect",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "dialect.addu",
+      "dv": "އައްޑޫ",
+      "en": "Addu",
+      "group": "dialect",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "dialect.huvadhu",
+      "dv": "ހުވަދޫ",
+      "en": "Huvadhu",
+      "group": "dialect",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "dialect.mulaku",
+      "dv": "ފުވައްމުލައް",
+      "en": "Fuvahmulah",
+      "group": "dialect",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "dialect.naifaru",
+      "dv": "ނައިފަރު",
+      "en": "Naifaru",
+      "group": "dialect",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.sanskrit",
+      "dv": "ސަންސްކްރިތު",
+      "en": "Sanskrit",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.pali",
+      "dv": "ޕާލި",
+      "en": "Pali",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.arabic",
+      "dv": "ޢަރަބި",
+      "en": "Arabic",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.persian",
+      "dv": "ފާރިސީ",
+      "en": "Persian",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.urdu",
+      "dv": "އުރުދޫ",
+      "en": "Urdu",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.hindi",
+      "dv": "ހިންދީ",
+      "en": "Hindi",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.english",
+      "dv": "އިނގިރޭސި",
+      "en": "English",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "origin.portuguese",
+      "dv": "ޕޯޗުގީޒު",
+      "en": "Portuguese",
+      "group": "origin",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "pos.noun",
+      "dv": "ނަން",
+      "en": "Noun",
+      "group": "pos",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "pos.verb",
+      "dv": "ކަން",
+      "en": "Verb",
+      "group": "pos",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "pos.adjective",
+      "dv": "ނަންއިތުރު",
+      "en": "Adjective",
+      "group": "pos",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "pos.adverb",
+      "dv": "ކަންއިތުރު",
+      "en": "Adverb",
+      "group": "pos",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "pos.pronoun",
+      "dv": "ނަންބަދަލު",
+      "en": "Pronoun",
+      "group": "pos",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "pos.particle",
+      "dv": "ޕާޓިކަލް",
+      "en": "Particle",
+      "group": "pos",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.medicine",
+      "dv": "ބޭސް",
+      "en": "Medicine",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.plant",
+      "dv": "ގަސް",
+      "en": "Plant",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.vehicle",
+      "dv": "އުޅަނދު",
+      "en": "Vehicle",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.place",
+      "dv": "ތަން",
+      "en": "Place",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.food",
+      "dv": "ކާނާ",
+      "en": "Food",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.sea",
+      "dv": "ކަނޑު",
+      "en": "Sea",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "category.general",
+      "dv": "އާންމު",
+      "en": "General",
+      "group": "category",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.seed",
+      "dv": "އޮށް",
+      "en": "Seed",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.leaf",
+      "dv": "ފަތް",
+      "en": "Leaf",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.root",
+      "dv": "މުރަކަ",
+      "en": "Root",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.bark",
+      "dv": "ފޮތި",
+      "en": "Bark",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.fruit",
+      "dv": "މޭވާ",
+      "en": "Fruit",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.flower",
+      "dv": "މާ",
+      "en": "Flower",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.oil",
+      "dv": "ތެޔޮ",
+      "en": "Oil",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "part.whole",
+      "dv": "މުޅި ގަސް",
+      "en": "Whole plant",
+      "group": "part",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "sourceKind.book",
+      "dv": "ފޮތް",
+      "en": "Book",
+      "group": "sourceKind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "sourceKind.list",
+      "dv": "ލިސްޓު",
+      "en": "List",
+      "group": "sourceKind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "sourceKind.person",
+      "dv": "މީހެއް",
+      "en": "Person",
+      "group": "sourceKind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "sourceKind.fieldwork",
+      "dv": "ފީލްޑްވޯކް",
+      "en": "Fieldwork",
+      "group": "sourceKind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "sourceKind.website",
+      "dv": "ވެބްސައިޓް",
+      "en": "Website",
+      "group": "sourceKind",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "action.create",
+      "dv": "އުފެއްދި",
+      "en": "Created",
+      "group": "action",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "action.update",
+      "dv": "ބަދަލުކުރި",
+      "en": "Changed",
+      "group": "action",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "action.delete",
+      "dv": "ފުހެލި",
+      "en": "Deleted",
+      "group": "action",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    },
+    {
+      "key": "action.verify",
+      "dv": "ޔަގީންކުރުން",
+      "en": "Verification",
+      "group": "action",
+      "where": [
+        "src/ui/text.ts"
+      ]
+    }
+  ]
+}

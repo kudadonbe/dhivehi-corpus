@@ -47,6 +47,14 @@ batches → `republish` rebuilds `published/{app}`. A review (`review()`) update
 `published/{app}` in one transaction so they never disagree. Apps are "keys" style (their own
 keys) or "text" style (key = `textKey(text)`, computed identically in PHP/Go clients).
 
+The site's interface is Dhivehi, right to left (`index.html` sets `lang="dv" dir="rtl"`). Every
+interface string is a key in `src/ui/text.ts` (Dhivehi, English for reference), read with `useT()`
+(`src/ui/i18n.tsx`); never write interface text inline. The site is itself app `dhivehi-corpus` in
+the corpus: corrections from `published/dhivehi-corpus` replace the built-in Dhivehi live. After
+changing the table run `UPDATE_SEED=1 pnpm vitest run src/ui` to regenerate
+`seed/dhivehi-corpus.json` (the test fails until you do). Latin inside the page (emails, ids, URLs,
+English content) goes in `<bdi dir="ltr">`, or `dir="auto"` on inputs.
+
 `firestore.rules` is edited directly. `scripts/build-rules.py` (+ `rules-head/tail.txt`) only
 records how the lexicon section was lifted from TaxiQ; do not re-run it.
 

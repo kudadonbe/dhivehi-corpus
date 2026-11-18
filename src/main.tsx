@@ -5,11 +5,14 @@ import '@fontsource/noto-sans-thaana/thaana-700.css'
 import './index.css'
 import App from './App.tsx'
 import { AuthProvider } from './auth.tsx'
+import { UiTextProvider } from './ui/i18n.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <UiTextProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </UiTextProvider>
   </StrictMode>,
 )
