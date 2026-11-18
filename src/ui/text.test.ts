@@ -33,8 +33,7 @@ describe('the site wording', () => {
     expect(parseImport(file).problems).toEqual([])
     const body = JSON.stringify(file, null, 2) + '\n'
     if (process.env.UPDATE_SEED) writeFileSync(SEED, body, 'utf8')
-    expect(readFileSync(SEED, 'utf8').replace(/
-/g, '
-')).toBe(body) // a Windows checkout may have CRLF
+    // A Windows checkout may have CRLF line endings.
+    expect(readFileSync(SEED, 'utf8').replace(/\r\n/g, '\n')).toBe(body)
   })
 })
